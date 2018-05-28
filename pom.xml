@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.jiang</groupId>
-	<artifactId>spring-boot-project-starter</artifactId>
+	<artifactId>spring-boot-server-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-project-starter</name>
-	<description>Simple Spring Boot project starter coded by Jiang</description>
+	<name>spring-boot-server-starter</name>
+	<description>Simple Spring Boot server starter coded by Jiang</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
