@@ -1,5 +1,7 @@
 package com.jiang.springbootserverstarter.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,14 @@ public class CreditUsingController {
     public UserCredit test() {
 		UserCredit userCredit = creditUsingSVImpl.selectByID(1);
         return userCredit;
+    }
+	
+	@RequestMapping("/transaction")
+    public void testTransaction() {
+		ArrayList<Integer> idList = new ArrayList<>();
+		idList.add(1);
+		idList.add(3);
+		creditUsingSVImpl.multiAddCredit(idList);;
     }
 
 }

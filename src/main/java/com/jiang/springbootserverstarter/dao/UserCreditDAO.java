@@ -8,5 +8,7 @@ import com.jiang.springbootserverstarter.beans.UserCredit;
 public interface UserCreditDAO {
 	
 	UserCredit selectByID(Integer id);
+	
+	int updateByID(UserCredit userCredit);
 
 }

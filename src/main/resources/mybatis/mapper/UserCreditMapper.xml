@@ -14,4 +14,10 @@
     <select id="selectByID" resultMap="BaseResultMap">
         select * from user_credit where id = #{id}
     </select>
+    
+    <update id="updateByID">
+		update user_credit
+		set credit = #{credit}
+		where id = #{id}
+	</update>
 </mapper>
