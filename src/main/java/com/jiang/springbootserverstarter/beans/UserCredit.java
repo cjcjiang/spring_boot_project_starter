@@ -2,6 +2,7 @@ package com.jiang.springbootserverstarter.beans;
 
 public class UserCredit {
 	
+	private Integer id;
 	private String userName;
 	private Integer credit;
 	
