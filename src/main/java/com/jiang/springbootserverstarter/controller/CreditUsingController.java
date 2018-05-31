@@ -29,8 +29,11 @@ public class CreditUsingController {
 	@RequestMapping("/transaction")
     public void testTransaction() {
 		ArrayList<Integer> idList = new ArrayList<>();
-		idList.add(1);
 		idList.add(3);
+		idList.add(4);
+		idList.add(5);
+		idList.add(1);
+		idList.add(2);
 		creditUsingSVImpl.multiAddCredit(idList);;
     }
 

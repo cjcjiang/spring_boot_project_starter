@@ -11,8 +11,8 @@ CREATE TABLE user_credit (
   UNIQUE (user_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO user_credit (user_name, credit) VALUES ('jiang', '100');
+INSERT INTO user_credit (user_name, credit) VALUES ('jiang1', '100');
 
-INSERT INTO user_credit (user_name, credit) VALUES ('ding', '200');
+INSERT INTO user_credit (user_name, credit) VALUES ('jiang2', '200');
 
 COMMIT;

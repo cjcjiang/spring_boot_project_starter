@@ -1,7 +1,9 @@
 package com.jiang.springbootserverstarter.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,8 @@ import com.jiang.springbootserverstarter.serviceInterface.CreditUsingSVInterface
 @Service
 public class CreditUsingSVImpl implements CreditUsingSVInterface {
 	
+	private Logger logger = Logger.getLogger(this.getClass());
+	
 	@Autowired
 	private UserCreditDAO userCreditDAO;
 
@@ -23,26 +27,38 @@ public class CreditUsingSVImpl implements CreditUsingSVInterface {
 	}
 	
 	@Override
-	@Transactional
+	@Transactional(noRollbackForClassName= {"UnknownUserException"})
 	public void multiAddCredit(List<Integer> idList) {
+		
+		ArrayList<Integer> unknownUserIDList = new ArrayList<>();
+		
 		for(Integer id : idList) {
 			UserCredit userCredit = userCreditDAO.selectByID(id);
+			
 			try {
 				userCredit.setCredit(userCredit.getCredit()+100);
 			}catch(NullPointerException e) {
-				e.printStackTrace();
-			}finally {
-				if(userCredit == null) {
-					userCredit = new UserCredit();
-					userCredit.setCredit(0);;
+				unknownUserIDList.add(id);
+				logger.error("The user with this id: " + id + ", does not exist.");
+				continue;
+			}
+			
+			if(userCredit != null) {
+				int affectedRows = userCreditDAO.updateByID(userCredit);
+				if(affectedRows == 0) {
+					throw new RuntimeException("Update fails.");
 				}
 			}
-			int affectedRows = userCreditDAO.updateByID(userCredit);
-			System.out.println("````````````````````````");
-			System.out.println("````````````````````````");
-			System.out.println("````````````````````````");
-			System.out.println(affectedRows);
 		}
+		
+		if(unknownUserIDList.size() != 0) {
+			String unknownUserErrorMessage = "Unkown users with id: ";
+			for(Integer id : unknownUserIDList) {
+				unknownUserErrorMessage = unknownUserErrorMessage + id + ";";
+			}
+			throw new UnknownUserException(unknownUserErrorMessage);
+		}
+		
 	}
 	
 }
