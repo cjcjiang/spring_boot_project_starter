@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jiang.springbootserverstarter.beans.UserCredit;
 import com.jiang.springbootserverstarter.serviceImpl.CreditUsingSVImpl;
 
+/**
+ * 测试transaction的接口。
+ * 
+ * @author Yuming Jiang
+ * @since 0.0.1-SNAPSHOT
+ */
 @RestController
 public class CreditUsingController {
 	

@@ -1,5 +1,11 @@
 package com.jiang.springbootserverstarter.beans;
 
+/**
+ * 表user_credit于此程序中对应的domain object。
+ * 
+ * @author Yuming Jiang
+ * @since 0.0.1-SNAPSHOT
+ */
 public class UserCredit {
 	
 	private Integer id;

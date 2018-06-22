@@ -12,6 +12,12 @@ import com.jiang.springbootserverstarter.beans.UserCredit;
 import com.jiang.springbootserverstarter.dao.UserCreditDAO;
 import com.jiang.springbootserverstarter.serviceInterface.CreditUsingSVInterface;
 
+/**
+ * 此服务实现类提供所有与user_credit表操作相关的业务逻辑。
+ * 
+ * @author Yuming Jiang
+ * @since 0.0.1-SNAPSHOT
+ */
 @Service
 public class CreditUsingSVImpl implements CreditUsingSVInterface {
 	
