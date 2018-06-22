@@ -14,13 +14,25 @@ import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.utils.IOUtils;
 
+/**
+ * 解压压缩包的工具类。
+ * 
+ * @author Yuming Jiang
+ * @since 0.0.1-SNAPSHOT
+ */
 public class UnZipUtil {
 	
     /** 
-     * 解压tar.gz 文件 
-     * @param file 要解压的tar.gz文件对象 
-     * @param outputDir 要解压到某个指定的目录下 
-     * @throws IOException 
+     * 解压tar.gz文件。
+     * 
+     * @param inputFileDir 要解压的tar.gz文件所在目录 。
+     * 
+     * @param outputDir 解压到的某个指定的目录下。
+     * 
+     * @throws IOException
+     * 
+     * @author Yuming Jiang
+     * @since 0.0.1-SNAPSHOT
      */
     public static void unTarGz(String inputDir,String outputDir) throws IOException{
     	String temp_input = "C:\\Users\\Lenovo\\Desktop\\temp.tar.gz";
