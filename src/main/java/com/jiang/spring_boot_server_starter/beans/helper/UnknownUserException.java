@@ -1,4 +1,4 @@
-package com.jiang.spring_boot_server_starter.service;
+package com.jiang.spring_boot_server_starter.beans.helper;
 
 public class UnknownUserException extends RuntimeException {
 	

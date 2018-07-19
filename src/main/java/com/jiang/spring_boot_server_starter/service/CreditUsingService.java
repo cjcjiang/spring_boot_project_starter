@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jiang.spring_boot_server_starter.beans.UserCredit;
+import com.jiang.spring_boot_server_starter.beans.helper.UnknownUserException;
 import com.jiang.spring_boot_server_starter.dao.UserCreditDAO;
 
 /**
