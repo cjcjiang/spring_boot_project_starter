@@ -1,4 +1,4 @@
-package com.jiang.springbootserverstarter.controller;
+package com.jiang.spring_boot_server_starter.controller;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jiang.springbootserverstarter.beans.UserCredit;
-import com.jiang.springbootserverstarter.serviceImpl.CreditUsingSVImpl;
+import com.jiang.spring_boot_server_starter.beans.UserCredit;
+import com.jiang.spring_boot_server_starter.service.CreditUsingService;
 
 /**
  * 测试transaction的接口。
@@ -19,7 +19,7 @@ import com.jiang.springbootserverstarter.serviceImpl.CreditUsingSVImpl;
 public class CreditUsingController {
 	
 	@Autowired
-	private CreditUsingSVImpl creditUsingSVImpl;
+	private CreditUsingService creditUsingSVImpl;
 	
 	@RequestMapping("/")
     public String home() {

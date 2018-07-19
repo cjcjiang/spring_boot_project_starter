@@ -1,8 +1,8 @@
-package com.jiang.springbootserverstarter.dao;
+package com.jiang.spring_boot_server_starter.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.jiang.springbootserverstarter.beans.UserCredit;
+import com.jiang.spring_boot_server_starter.beans.UserCredit;
 
 /**
  * 所有操作表user_credit的sql方法的接口。

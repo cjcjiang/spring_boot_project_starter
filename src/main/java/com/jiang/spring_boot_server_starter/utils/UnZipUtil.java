@@ -1,4 +1,4 @@
-package com.jiang.springbootserverstarter.utils;
+package com.jiang.spring_boot_server_starter.utils;
 
 import java.io.BufferedInputStream;
 import java.io.File;

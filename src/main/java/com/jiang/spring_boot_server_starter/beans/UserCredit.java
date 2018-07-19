@@ -1,4 +1,4 @@
-package com.jiang.springbootserverstarter.beans;
+package com.jiang.spring_boot_server_starter.beans;
 
 /**
  * 表user_credit于此程序中对应的domain object。

@@ -1,4 +1,4 @@
-package com.jiang.springbootserverstarter.serviceImpl;
+package com.jiang.spring_boot_server_starter.service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,19 +15,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.jiang.springbootserverstarter.serviceInterface.GitLabApiSVInterface;
-
 /**
- * 提供调用gitlab api的能力的服务的实现。
+ * 提供调用gitlab api的能力的服务。
  * 
  * @author Yuming Jiang
  * @since 0.0.1-SNAPSHOT
  */
 @Service
-public class GitLabApiSVImpl implements GitLabApiSVInterface {
+public class GitLabApiRestClientService  {
+	
+	private RestTemplate restTemplate;
 	
 	@Autowired
-	private RestTemplateBuilder restTemplateBuilder;
+	public void setRestTemplate(RestTemplateBuilder restTemplateBuilder) {
+		this.restTemplate = restTemplateBuilder.build();
+	}
 
 	/** 
      * 调用gitlab api，获得此repo所有文件的压缩包。
@@ -41,7 +43,6 @@ public class GitLabApiSVImpl implements GitLabApiSVInterface {
      * @author Yuming Jiang
      * @since 0.0.1-SNAPSHOT
      */
-	@Override
 	public void getRepoBranchArchive(Integer repoId, String branch) throws IOException {
 		String url = "http://192.168.100.10/api/v3/projects/"
 				+ "3807/repository/archive?"
@@ -50,10 +51,16 @@ public class GitLabApiSVImpl implements GitLabApiSVInterface {
 		HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_OCTET_STREAM));
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<byte[]> response = restTemplate
         		.exchange(url, HttpMethod.GET, entity, byte[].class);
         Files.write(Paths.get(temp_storage), response.getBody());
+	}
+
+	// 为展示单元测试而写的方法
+	public String getString() {
+		String url = "http://192.168.1.1/test";
+		String result = restTemplate.getForObject(url, String.class);
+		return result;
 	}
 
 }

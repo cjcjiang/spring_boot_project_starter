@@ -1,4 +1,4 @@
-package com.jiang.springbootserverstarter.controller;
+package com.jiang.spring_boot_server_starter.controller;
 
 import java.io.IOException;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jiang.springbootserverstarter.serviceImpl.GitLabApiSVImpl;
-import com.jiang.springbootserverstarter.utils.UnZipUtil;
+import com.jiang.spring_boot_server_starter.service.GitLabApiRestClientService;
+import com.jiang.spring_boot_server_starter.utils.UnZipUtil;
 
 /**
  * 调用gitlab api的封装接口。
@@ -19,7 +19,7 @@ import com.jiang.springbootserverstarter.utils.UnZipUtil;
 public class GitLabApiController {
 	
 	@Autowired
-	private GitLabApiSVImpl gitLabApiSVImpl;
+	private GitLabApiRestClientService gitLabApiSVImpl;
 	
 	/** 
      * 调用gitlab api获得此repo全部文件并解压的测试接口。

@@ -1,4 +1,4 @@
-package com.jiang.springbootserverstarter;
+package com.jiang.spring_boot_server_starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
