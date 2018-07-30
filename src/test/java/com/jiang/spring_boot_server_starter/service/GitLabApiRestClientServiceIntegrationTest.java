@@ -17,7 +17,7 @@ import com.jiang.spring_boot_server_starter.service.GitLabApiRestClientService;
 
 @RunWith(SpringRunner.class)
 @RestClientTest(GitLabApiRestClientService.class)
-public class GitLabApiRestClientServiceTest {
+public class GitLabApiRestClientServiceIntegrationTest {
 	
 	@Autowired
 	private GitLabApiRestClientService gitLabApiSVImpl;
