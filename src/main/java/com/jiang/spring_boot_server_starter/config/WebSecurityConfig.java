@@ -1,4 +1,4 @@
-package com.jiang.spring_boot_server_starter;
+package com.jiang.spring_boot_server_starter.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
