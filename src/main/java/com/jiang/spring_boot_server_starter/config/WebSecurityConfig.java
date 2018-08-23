@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/unsecuredPage").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().hasAnyRole("ADMIN")
                 .and()
             .formLogin();
     }
@@ -30,7 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
             .passwordEncoder(passwordEncoder())
-            .withUser("jiang").password(passwordEncoder().encode("jiang")).roles("USER");
+            .withUser("ming").password(passwordEncoder().encode("ming")).roles("USER")
+            .and()
+            .withUser("jiang").password(passwordEncoder().encode("jiang")).roles("ADMIN");
     }
 
     @Bean
